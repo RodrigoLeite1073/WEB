@@ -1,0 +1,18 @@
+{
+  "name": "VAT_Baker",
+  "description": "Vertex Animation Textures System for Unity DOTS",
+  "homepage": "https://khipugamestudio.github.io/VAT_Asset/",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KhipuGameStudio/VAT_Asset"
+  },
+  "author": {
+    "name": "Khipu Game Studio",
+    "url": "https://youtube.com/@khipugamestudio"
+  },
+  "license": "MIT"
+}
