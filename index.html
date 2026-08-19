@@ -296,28 +296,6 @@
             border-radius: 16px;
         }
 
-        .video-fallback {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            text-align: center;
-            padding: 1.25rem;
-            color: var(--text-muted);
-        }
-
-        .video-fallback a {
-            color: white;
-            text-decoration: none;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            padding: 0.7rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
         .video-label {
             margin-top: 1rem;
             font-weight: 600;
@@ -569,11 +547,11 @@
 
     <section class="hero">
         <div class="hero-content">
-            <span class="badge">Unity DOTS Ready</span>
+            <span class="badge">DOTS + MonoBehaviour</span>
             <h1>Vertex Animation Textures <span>System</span></h1>
-            <p>High-performance GPU-driven animation system for Unity. Transform your animations into textures and achieve massive performance gains with DOTS, Burst, and URP.</p>
+            <p>High-performance GPU-driven animation system for Unity. Transform your animations into textures and achieve massive performance gains with DOTS/Burst or in standard scenes with a simple MonoBehaviour.</p>
             <div class="hero-buttons">
-                <a href="https://assetstore.unity.com/packages/slug/367924" target="_blank" rel="noopener" class="btn btn-primary">
+                <a href="https://assetstore.unity.com/packages/tools/animation/vat-baker-367924" target="_blank" rel="noopener" class="btn btn-primary">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                     Get on Asset Store
                 </a>
@@ -599,13 +577,13 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>DOTS Integration</h3>
-                    <p>Built natively for Unity's Data-Oriented Technology Stack. Seamless ECS, Burst Compiler, and Jobs System integration.</p>
+                    <h3>No-DOTS Workflow (Mono Baker)</h3>
+                    <p>NEW: generate prefabs with VATAnimationController for standard scenes. No ECS, no SubScenes — just drag the prefab in and play.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
                     <h3>Smooth Crossfading</h3>
-                    <p>Blend between animation clips without code. GPU-based interpolation for buttery-smooth transitions between any poses.</p>
+                    <p>Real vertex-shader blending between clips using _AnimBlend. Configurable, buttery-smooth transitions (the Mono path blends in-shader, unlike the ECS hard-switch).</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎬</div>
@@ -615,12 +593,12 @@
                 <div class="feature-card">
                     <div class="feature-icon">🖼️</div>
                     <h3>Texture-Based Storage</h3>
-                    <p>All animation data stored in textures. Compact, cache-friendly, and perfect for streaming and dynamic loading.</p>
+                    <p>All animation data stored in compact RGBAHalf textures. Cache-friendly, and perfect for streaming and dynamic loading.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🚀</div>
-                    <h3>URP Optimized</h3>
-                    <p>Fully compatible with Universal Render Pipeline. Optimized shaders and materials for maximum performance.</p>
+                    <h3>URP + Built-in</h3>
+                    <p>Optimized shaders for the Universal Render Pipeline and the classic render pipeline. The baker auto-selects the right shader for your active pipeline.</p>
                 </div>
             </div>
         </div>
@@ -635,35 +613,23 @@
             <div class="videos-grid">
                 <div>
                     <div class="video-wrapper">
-                        <iframe
-                            data-video-id="RmU1EDEqLrw"
+                        <iframe 
+                            src="https://www.youtube.com/embed/RmU1EDEqLrw" 
                             title="VAT_Baker Demo Video 1"
-                            loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
-                        <div class="video-fallback" data-fallback-for="RmU1EDEqLrw" hidden>
-                            <p>Vista local detectada. Abre el video directamente en YouTube.</p>
-                            <a href="https://www.youtube.com/watch?v=RmU1EDEqLrw" target="_blank" rel="noopener">Abrir Video</a>
-                        </div>
                     </div>
                     <p class="video-label"><span>►</span> VAT_Baker Overview - Complete System Walkthrough</p>
                 </div>
                 <div>
                     <div class="video-wrapper">
-                        <iframe
-                            data-video-id="AqRic3VpO7c"
+                        <iframe 
+                            src="https://www.youtube.com/embed/AqRic3VpO7c" 
                             title="VAT_Baker Demo Video 2"
-                            loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
-                        <div class="video-fallback" data-fallback-for="AqRic3VpO7c" hidden>
-                            <p>Vista local detectada. Abre el video directamente en YouTube.</p>
-                            <a href="https://www.youtube.com/watch?v=AqRic3VpO7c" target="_blank" rel="noopener">Abrir Video</a>
-                        </div>
                     </div>
                     <p class="video-label"><span>►</span> VAT_Baker Tutorial - Getting Started Guide</p>
                 </div>
@@ -698,7 +664,8 @@
                     <h2>What is VAT_Baker?</h2>
                     <p>VAT_Baker is a professional-grade Vertex Animation Textures system designed for Unity developers who demand performance.</p>
                     <p>Convert traditional bone-based animations into GPU-friendly textures. Each pixel Stores vertex positions and normals for every frame, enabling the GPU to animate meshes directly—bypassing the CPU entirely.</p>
-                    <p>Whether you're building a mobile game with hundreds of units or a AAA project with massive crowds, VAT_Baker scales to meet your needs while maintaining silky-smooth framerates.</p>
+                    <p>Whether you're building a mobile game with hundreds of units or a AAA project with massive crowds, VAT_Baker scales to meet your needs while maintaining silky-smooth framerates. Works with ECS/Burst or the new no-DOTS MonoBehaviour workflow, on URP and Built-in Render Pipeline.</p>
+                    <p><strong>New in v1.1:</strong> MonoBehaviour baking, real vertex-shader crossfades, Built-in Render Pipeline shader, automatic clip detection, and correct bake for scaled/non-uniform hierarchies.</p>
                 </div>
                 <div class="about-image">
                     <img src="assets/Unity_MF8bVzZHyh.png" alt="VAT_Baker Demo">
@@ -760,7 +727,7 @@
     </section>
 
     <footer>
-        <p>© 2026 <a href="#">Khipu Game Studio</a>. All rights reserved. | VAT_Baker for Unity</p>
+        <p>© 2026 <a href="#">Khipu Game Studio</a>. All rights reserved. | VAT_Baker for Unity · <a href="https://assetstore.unity.com/packages/tools/animation/vat-baker-367924" target="_blank" rel="noopener">View on Asset Store</a></p>
     </footer>
 
     <script>
@@ -787,35 +754,6 @@
                 header.style.background = 'rgba(13, 13, 20, 0.9)';
             }
         });
-
-        // YouTube embed setup compatible with local (file://) and hosted environments
-        (function setupYoutubeEmbeds() {
-            const iframes = document.querySelectorAll('iframe[data-video-id]');
-            const isHttp = window.location.protocol === 'http:' || window.location.protocol === 'https:';
-            const origin = isHttp ? window.location.origin : '';
-
-            iframes.forEach((iframe) => {
-                const videoId = iframe.getAttribute('data-video-id');
-                if (!videoId) return;
-                const fallback = document.querySelector(`[data-fallback-for="${videoId}"]`);
-
-                const params = new URLSearchParams({
-                    rel: '0',
-                    modestbranding: '1',
-                    playsinline: '1'
-                });
-
-                if (!origin) {
-                    iframe.hidden = true;
-                    if (fallback) fallback.hidden = false;
-                    return;
-                }
-
-                params.set('origin', origin);
-
-                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
-            });
-        })();
     </script>
 </body>
 </html>
